@@ -45,14 +45,22 @@ function App() {
     const[scoreShow,setScoreShow]=useState(false);
     const [score,setResult]=useState(0) //For scoring
     
-    const selectAnswerOption=(questionTask.ans)=>{
-      if(questionTask.ans)
-      {
-        setResult(score+1)
-      }
+    const selectAnswerOption=(i)=>{
+      // if(ans===questionTask.ans)
+      // {
+      //   setResult(score+1)
+      // }
       const aglaQuestion=currentIndex+1;
       if(aglaQuestion<questionTask.length){
         setCurrentIndex(aglaQuestion)
+        console.log('ans===>',questionTask[currentIndex].ans)
+        console.log('clicked answer===>',questionTask[currentIndex].option[i])
+        if(questionTask[currentIndex].option[i] === questionTask[currentIndex].ans){
+          setResult(score+1)
+        }
+        else{
+          console.log('you entered incorrect answer')
+        }
       }
       else{
         setScoreShow(true)
@@ -72,12 +80,13 @@ function App() {
         </div>
 {/* Answer Section */}
         <div className='answer_section'>
-              {questionTask[currentIndex].option.map(val=>{
-                return<button onClick={()=>selectAnswerOption(questionTask.ans)}>{val}</button>
+              {questionTask[currentIndex].option.map((val,index)=>{
+                return<button onClick={()=>selectAnswerOption(index)}>{val}</button>
               })}
         </div>
       </>)}
     </div>
   );
 }
+
 export default App;

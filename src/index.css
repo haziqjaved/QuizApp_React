@@ -56,7 +56,7 @@ body {
     justify-content: space-evenly;
   }
   
-  button
+  .answer_section button
    {
     width: 100%;
     font-size: 16px;
@@ -71,10 +71,10 @@ body {
     cursor: pointer;
   }
   
-  button:hover {
+  .answer_section button:hover {
     background-color: #555e7d;
   }
   
-  button:focus {
+  .answer_section button:focus {
     outline: none;
   }

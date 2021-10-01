@@ -1,5 +1,6 @@
 import {react} from 'react';
 import {useState} from 'react';
+// import seal from './SEAL.png'
 import './App.css';
 
 function App() {
@@ -68,13 +69,16 @@ function App() {
     }
   return (  
     <div className="App"> 
+      <div className="app">
       {scoreShow ?(<div className='score-section'>
-					You scored {score} out of {questionTask.length}
+				<p>	You scored {score} out of {questionTask.length}</p>
+          <img src='https://cdn2.iconfinder.com/data/icons/medicine-3-1/512/quality_seal-512.png'  alt='award_seal'/>
+          {/* <button onClick={()=>setCurrentIndex(0)}>Start Again</button> */}
 				</div>):(<>
       {/* Question Section */}
         <div className='Question_section'>
           <div className='index-count'>
-            <span>Question{currentIndex+1}</span>/{questionTask.length}
+            <span className='length'>Question{currentIndex+1}</span> Out of {questionTask.length}
           </div>
           <div className='question-text'>{questionTask[currentIndex].question}</div>
         </div>
@@ -85,6 +89,7 @@ function App() {
               })}
         </div>
       </>)}
+      </div>
     </div>
   );
 }
